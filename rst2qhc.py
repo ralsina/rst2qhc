@@ -126,19 +126,22 @@ def main():
     
     print "Creating Help File from: %s"%', '.join(infiles)
     print "Saving to: %s"%outdir
-    
+
+
     attributes={
         'namespace':options.namespace,
         'folder':options.virtualfolder,
         'filter_name':options.customfilter,
-        'filter_attributes':'\n'.join('<filterAttribute>%s</filterAttribute>'%a for a in options.filterattr.split(':')),
+        'filter_attributes':'',
         'doc_title':'Unknown Title',
         'file_name':'',
         'sections':'',
         'keywords':'',
         'files':''
         }
-    
+    if options.filterattr:
+        attributes['filter_attributes']='\n'.join('<filterAttribute>%s</filterAttribute>'%a for a in options.filterattr.split(':'))
+            
     for infile in infiles:
         # Generate HTML file in outdir
         filename=os.path.basename(infile)
