@@ -98,16 +98,12 @@ class HelpProjectTranslator(nodes.SparseNodeVisitor):
                  self.cur_section_ref)
                 
 def node_to_ref(node):
-    refid=node.get('refid','')
-    if not refid:
-        ids=node.parent.get('ids',[])
-        if ids:
-            return ids[0]
-        else:
-            return ''
+    ids=node.parent.get('ids',[])
+    if ids:
+        return ids[0]
     else:
-        return refid
-
+        return ''
+ 
 def main():
     parser=OptionParser()
     parser.add_option('--namespace',dest='namespace',help='Help Project Namespace',default='Unknown')
@@ -117,7 +113,6 @@ def main():
     parser.add_option('-o','--outputdir',dest='outdir',help='Output Directory',default='out')
     
     options,args=parser.parse_args()
-    print options
     outdir=options.outdir
     
     if not os.path.isdir(outdir):
@@ -162,6 +157,8 @@ def main():
         attributes['files']+='\n                  <file>%s</file>'%outfile
     codecs.open(os.path.join(outdir,'project.qhp'),'w','utf-8').write(HelpProject % attributes)
     codecs.open(os.path.join(outdir,'project.qhcp'),'w','utf-8').write(HelpCollection % attributes)
+    os.system("qhelpgenerator %s -o %s"%(os.path.join(outdir,'project.qhp'),os.path.join(outdir,'help.qhc')))
+    print "Created: ",os.path.join(outdir,'help.qhc')
    
 if __name__=='__main__':
     main()
