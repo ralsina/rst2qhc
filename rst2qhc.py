@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Call rst2html.py and and rst2qthelpproject.py, and also generate a
-   Qt Help Collection Project"""
+"""Call rst2html.py and generate a Qt Help Collection from the output.
+This program is (c) Roberto Alsina <ealsina@netmanagers.com.ar> 2009
+And is licensed under the GPLv2.
+Please read the COPYING file for licensing terms.
+"""
    
 import os,sys,codecs
 import docutils.readers.doctree
