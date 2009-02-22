@@ -10,9 +10,11 @@ In short:
 
     .. role:: keyword
 
-* Call rst2qhc like this (of course, with the right namespace, add other arguments as needed)::
+* Call rst2qhc like this (of course, with the right namespace, and other arguments as needed)::
 
-    python rst2qhc.py manual.txt -o out --namespace urssus
+    python rst2qhc.py example.txt -o out --namespace urssus \
+    --filterattributes urssus:0.2.13 \
+    --rst2htmlopts="--stylesheet=mystyle.css"
 
 To see the accepted arguments, do::
 

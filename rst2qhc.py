@@ -114,6 +114,7 @@ def main():
     parser.add_option('--customfilter',dest='customfilter',help='Help Project Custom Filter Name',default='Unknown')
     parser.add_option('--filterattributes',dest='filterattr',help='Filter Attributes (colon-separated)',default='')
     parser.add_option('-o','--outputdir',dest='outdir',help='Output Directory',default='out')
+    parser.add_option('--rst2htmlopts',dest='rst2htmlopts',help='Options passed to rst2html',default='')
     
     options,args=parser.parse_args()
     outdir=options.outdir
@@ -149,7 +150,7 @@ def main():
             outfile = filename[:-4] + '.html'
         else:
             outfile=filename + '.html'
-        os.system("rst2html.py %s %s"%(infile,os.path.join(outdir,outfile)))
+        os.system("rst2html.py %s %s %s"%(infile,os.path.join(outdir,outfile),options.rst2htmlopts))
         
         doctree=docutils.core.publish_doctree(open(infile).read(),source_path=infile)
         translator=HelpProjectTranslator(doctree,outfile)
