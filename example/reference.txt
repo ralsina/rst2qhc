@@ -9,6 +9,10 @@ This is a reference manual. Of course there is nothing in it,
 but the idea is that the example for rst2qhc should show how it handles
 multiple rst files.
 
+If you got here from the handbook, you can now `go back`_
+
+.. _go back: handbook.html#introduction
+
 Outro
 -----
 

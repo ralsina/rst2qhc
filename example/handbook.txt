@@ -1,70 +1,42 @@
-===================
-The uRSSus Handbook
-===================
+============
+The Handbook
+============
 
-:Version: 0.2.13
+:Version: 0.1
 :Author: Roberto Alsina
-:Homepage: http://urssus.googlecode.com
+:Homepage: http://rst2qhc.googlecode.com
 
 .. role:: keyword
 
 Introduction
 ------------
 
-Here we introduce uRSSus
+This is a silly demo document, not a real manual.
 
-What is uRSSus
-~~~~~~~~~~~~~~
+Also, you may want to see the `reference manual`_ (see, that's a link to another manual in assistant)
 
-First, what it is
+And here is a demo_ of what restructured text can do.
 
-What can you do using uRSSus
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _demo: demo.html
 
-Then :keyword:`what can you` do using it.
+.. _reference manual: reference.html
 
 Quick Start
 -----------
 
-Start :keyword:`quick`
-
-The Main Window
-~~~~~~~~~~~~~~~
-
-Describe what the user sees in the :keyword:`main window`.
-
-Here is what it looks like:
-    
-
-Adding Feeds
-~~~~~~~~~~~~
-
-Where can he find nice stuff to read
-
-Organizing Feeds
-~~~~~~~~~~~~~~~~
-
-And how not to get lost
+Start :keyword:`quick` with this example!
 
 Configuration
 -------------
 
-uRSSus Options
-~~~~~~~~~~~~~~
-
-Configuration, views, whatever
+Look at the nice config dialog I did for another app:
 
 .. image:: urssus.png
-
-Feed Options
-~~~~~~~~~~~~
-
-Expiration, etc.
 
 Credits and License
 -------------------
 
-uRSSus is (c) Roberto Alsina <ralsina@netmanagers.com.ar> 2008-2009 and 
-licensed under the termos of the GPL v2, included below. 
+rst2qhc is (c) Roberto Alsina <ralsina@netmanagers.com.ar> 2009 and 
+licensed under the termos of the GPL v2. 
 
-FOr more information, please visit http://urssus.googlecode.com
+FOr more information, please visit http://rst2qhc.googlecode.com
