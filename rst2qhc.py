@@ -17,14 +17,8 @@ from optparse import OptionParser
 HelpCollection=r"""<?xml version="1.0" encoding="utf-8" ?>
 <QHelpCollectionProject version="1.0">
     <docFiles>
-       <generate>
-           <file>
-               <input>project.qhp</input>
-               <output>project.qhc</output>
-           </file>
-       </generate>         
-       <register>
-           <file>project.qhc</file>
+        <register>
+            <file>doc.qch</file>
         </register>
     </docFiles>
 </QHelpCollectionProject>
@@ -117,7 +111,8 @@ def main():
     parser.add_option('-o','--outputdir',dest='outdir',help='Output Directory',default='out')
     parser.add_option('--rst2htmlopts',dest='rst2htmlopts',help='Options passed to rst2html',default='')
     parser.add_option('--manifest',dest='manifest',help='A list of files to include. Use it for CSS, images, etc.',default='')
-    
+    parser.add_option('--create-qhcp',dest='createqhcp',help='Create a basic Help Collection Project file',default=False,action='store_true')
+        
     options,args=parser.parse_args()
     outdir=options.outdir
     
@@ -172,10 +167,14 @@ def main():
                  translator.attributes['sections'],
                 )
         attributes['files']+='\n            <file>%s</file>'%outfile
+        
     codecs.open(os.path.join(outdir,'project.qhp'),'w','utf-8').write(HelpProject % attributes)
-    codecs.open(os.path.join(outdir,'project.qhcp'),'w','utf-8').write(HelpCollection % attributes)
-    os.system("qhelpgenerator %s -o %s"%(os.path.join(outdir,'project.qhp'),os.path.join(outdir,'help.qhc')))
+    os.system("qhelpgenerator %s -o %s"%(os.path.join(outdir,'project.qhp'),os.path.join(outdir,'doc.qhc')))
     print "Created: ",os.path.join(outdir,'help.qhc')
+    
+    if options.createqhcp:
+        codecs.open(os.path.join(outdir,'project.qhcp'),'w','utf-8').write(HelpCollection % attributes)
+        print "Created: ",os.path.join(outdir,'project.qhcp')
    
 if __name__=='__main__':
     main()
