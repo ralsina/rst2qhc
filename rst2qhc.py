@@ -8,11 +8,22 @@ Please read the COPYING file for licensing terms.
 """
    
 import os,sys,codecs,shutil
+from optparse import OptionParser
+
+from docutils.parsers.rst import roles
+
+# Register keyword role
+def keyword_role(name, rawtext, text, lineno, inliner,
+                 options={}, content=[]):
+    return [],[]
+roles.register_canonical_role('keyword', keyword_role)
+roles.register_local_role('keyword', keyword_role)
+
 import docutils.readers.doctree
 import docutils.core
 import docutils.nodes as nodes
+
 from docutils.transforms import Transformer
-from optparse import OptionParser
 
 HelpCollection=r"""<?xml version="1.0" encoding="utf-8" ?>
 <QHelpCollectionProject version="1.0">
@@ -43,7 +54,6 @@ HelpProject=r"""<?xml version="1.0" encoding="UTF-8"?>
     </filterSection>
 </QtHelpProject>
 """
-
 
 class HelpProjectTranslator(nodes.SparseNodeVisitor):
 
@@ -147,7 +157,6 @@ def main():
             attributes['files']+='\n            <file>%s</file>'%f
             shutil.copy(f,outdir)
     
-            
     for infile in infiles:
         # Generate HTML file in outdir
         filename=os.path.basename(infile)
