@@ -55,7 +55,6 @@
        constructs and many advanced constructs.
 
 .. contents:: Table of Contents
-.. section-numbering::
 
 
 Structural Elements

@@ -34,7 +34,10 @@ BTW: you can also make them NOT be yellow, that's done with the stylesheet.
 Configuration
 -------------
 
-Look at the nice config :keyword:`dialog` I did for another app:
+Look at the nice config :keyword:`dialog` I did for `another app`_:
+
+.. _another app: http://urssus.googlecode.com
+
 
 .. image:: urssus.png
 
