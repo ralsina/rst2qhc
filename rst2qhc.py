@@ -7,7 +7,7 @@ And is licensed under the GPLv2.
 Please read the COPYING file for licensing terms.
 """
    
-import os,sys,codecs
+import os,sys,codecs,shutil
 import docutils.readers.doctree
 import docutils.core
 import docutils.nodes as nodes
@@ -43,7 +43,8 @@ HelpProject=r"""<?xml version="1.0" encoding="UTF-8"?>
         </toc>
         <keywords>%(keywords)s
         </keywords>
-        <files>%(files)s
+        <files>
+            %(files)s
         </files>
     </filterSection>
 </QtHelpProject>
@@ -115,6 +116,7 @@ def main():
     parser.add_option('--filterattributes',dest='filterattr',help='Filter Attributes (colon-separated)',default='')
     parser.add_option('-o','--outputdir',dest='outdir',help='Output Directory',default='out')
     parser.add_option('--rst2htmlopts',dest='rst2htmlopts',help='Options passed to rst2html',default='')
+    parser.add_option('--manifest',dest='manifest',help='A list of files to include. Use it for CSS, images, etc.',default='')
     
     options,args=parser.parse_args()
     outdir=options.outdir
@@ -141,7 +143,15 @@ def main():
         'files':''
         }
     if options.filterattr:
-        attributes['filter_attributes']='\n'.join('<filterAttribute>%s</filterAttribute>'%a for a in options.filterattr.split(':'))
+        attributes['filter_attributes']='\n        '.join('<filterAttribute>%s</filterAttribute>'%a for a in options.filterattr.split(':'))
+    if options.manifest:
+        # Put everything in the help project
+        # And copy into the outdir
+        for f in open(options.manifest):
+            f=f.strip()
+            attributes['files']+='\n            <file>%s</file>'%f
+            shutil.copy(f,outdir)
+    
             
     for infile in infiles:
         # Generate HTML file in outdir
@@ -161,7 +171,7 @@ def main():
                  outfile,
                  translator.attributes['sections'],
                 )
-        attributes['files']+='\n                  <file>%s</file>'%outfile
+        attributes['files']+='\n            <file>%s</file>'%outfile
     codecs.open(os.path.join(outdir,'project.qhp'),'w','utf-8').write(HelpProject % attributes)
     codecs.open(os.path.join(outdir,'project.qhcp'),'w','utf-8').write(HelpCollection % attributes)
     os.system("qhelpgenerator %s -o %s"%(os.path.join(outdir,'project.qhp'),os.path.join(outdir,'help.qhc')))
