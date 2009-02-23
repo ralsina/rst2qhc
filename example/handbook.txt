@@ -15,21 +15,24 @@ This is a silly demo document, not a real manual.
 
 Also, you may want to see the `reference manual`_ (see, that's a link to another manual in assistant)
 
-And here is a demo_ of what restructured text can do.
+Here is a demo_ of what restructured text can do.
 
 .. _demo: demo.html
 
 .. _reference manual: reference.html
 
-Quick Start
------------
+Keywords
+--------
 
 Start :keyword:`quick` with this example!
+
+See how quick is yellow? That's because it´s marked as a :keyword:`keyword`. 
+You can see these in the Index tab in assistant. Neat!
 
 Configuration
 -------------
 
-Look at the nice config dialog I did for another app:
+Look at the nice config :keyword:`dialog` I did for another app:
 
 .. image:: urssus.png
 

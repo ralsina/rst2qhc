@@ -1,6 +1,10 @@
-/* Alternate stylesheet for rawdog. But you can still customise it as you like.
- * The .xmlbutton was stolen from the default stylesheet.
+/* Modified from alternate stylesheet for rawdog by
  * Samuel Hym <Samuel.Hym@gmail.com> */
+
+/* This is the default docutils CSS. You probably need it, too.
+ * There are some other styles in http://rst2a.com
+ * */
+@import "html4css1.css";
 
 body {
     font-family: Georgia,Serif;
@@ -39,4 +43,6 @@ h3 {
     margin-top: 2em;
 }
 
-
+.keyword {
+	background-color: yellow;
+}
