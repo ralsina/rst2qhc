@@ -1,0 +1,42 @@
+/* Alternate stylesheet for rawdog. But you can still customise it as you like.
+ * The .xmlbutton was stolen from the default stylesheet.
+ * Samuel Hym <Samuel.Hym@gmail.com> */
+
+body {
+    font-family: Georgia,Serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #08b;
+}
+
+a:visited, a:hover {
+    color: #a03;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #888;
+}
+
+h2, h3 {
+    text-transform: uppercase;
+    font-size: 90%;
+    color: #888;
+}
+
+h2 {
+    margin-top: 3em;
+}
+
+h3 {
+    margin-top: 2em;
+}
+
+

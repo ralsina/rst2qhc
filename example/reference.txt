@@ -1,0 +1,15 @@
+====================
+The Reference Manual
+====================
+
+Intro
+-----
+
+This is a reference manual. Of course there is nothing in it, 
+but the idea is that the example for rst2qhc should show how it handles
+multiple rst files.
+
+Outro
+-----
+
+That's all for this document
