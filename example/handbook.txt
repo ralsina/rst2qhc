@@ -29,6 +29,8 @@ Start :keyword:`quick` with this example!
 See how quick is yellow? That's because it´s marked as a :keyword:`keyword`. 
 You can see these in the Index tab in assistant. Neat!
 
+BTW: you can also make them NOT be yellow, that's done with the stylesheet.
+
 Configuration
 -------------
 
