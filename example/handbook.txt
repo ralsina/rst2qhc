@@ -35,7 +35,6 @@ Describe what the user sees in the :keyword:`main window`.
 
 Here is what it looks like:
     
-.. image:: urssus23.png
 
 Adding Feeds
 ~~~~~~~~~~~~
@@ -54,6 +53,8 @@ uRSSus Options
 ~~~~~~~~~~~~~~
 
 Configuration, views, whatever
+
+.. image:: urssus.png
 
 Feed Options
 ~~~~~~~~~~~~
