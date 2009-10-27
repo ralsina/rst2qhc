@@ -29,7 +29,7 @@ HelpCollection=r"""<?xml version="1.0" encoding="utf-8" ?>
 <QHelpCollectionProject version="1.0">
     <docFiles>
         <register>
-            <file>doc.qhc</file>
+            <file>doc.qch</file>
         </register>
     </docFiles>
 </QHelpCollectionProject>
@@ -154,8 +154,9 @@ def main():
         # And copy into the outdir
         for f in open(options.manifest):
             f=f.strip()
-            attributes['files']+='\n            <file>%s</file>'%f
-            shutil.copy(f,os.path.join(outdir,f))
+            if f:
+                attributes['files']+='\n            <file>%s</file>'%f
+                shutil.copy(f,outdir)
     
     for infile in infiles:
         # Generate HTML file in outdir
